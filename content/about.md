@@ -1,21 +1,28 @@
 +++
 title = "About"
-date = "2019-01-25"
-author = "Radek"
+date = "2019-05-25"
 +++
 
-# Hi there
+Hi, I'm Ashish. I love computers and the endless possibilities they
+offer. Programming is to build beautiful products and contributing
+to the [vision of Mr. Richard Stallman](https://youtu.be/L4qNuoSwmPo).
 
-My name is Radek and I'm the author of this theme. I made it to help you present your ideas easier.
+Stories about people who challenged the system for the betterment of
+society fascinate me.
 
-We all know how hard is to start something on the web, especially these days. You need to prepare a bunch of stuff, configure them and when that’s done — create the content.
+- Steve Wozniak brought color to personal computers
+([source](https://youtu.be/uCRijF7lxzI))
+- Phil Zimmermann released PGP's source code as a book to get around
+US export law ([source]
+(https://www.wikiwand.com/en/Pretty_Good_Privacy#/Criminal_investigation))
+- Pavel Durov and his journey of Telegram
+([source](http://fortune.com/telegram-pavel-durov-mobile-world-congress/))
+- Elon musk on becoming a spacefaring civilization makes him get up
+in the morning ([source](https://youtu.be/zu7WJD8vpAQ?t=1724))
 
-This theme is pretty basic and covers all of the essentials. All you have to do is start typing!
+**I believe in privacy as a fundamental right.**
 
-The theme includes:
+On a lighter note, I occasionally make sketch portraits of happy
+people :)
 
-- **light/dark mode**, depending on your preferences
-- great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/)
-- nice code highlighting thanks to [**PrismJS**](https://prismjs.com)
-
-So, there you have it... enjoy!
+Enjoy!
