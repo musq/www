@@ -15,8 +15,8 @@ paginate = 10
 
 [languages]
   [languages.en]
-    title = "Hello Friend"
-    subtitle = "A simple theme for Hugo"
+    title = "The sound of musq"
+    subtitle = ""
     keywords = ""
     copyright = ""
     menuMore = "Show more"
@@ -26,11 +26,11 @@ paginate = 10
     newerPosts = "Newer posts"
     olderPosts = "Older posts"
     minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
+    dateFormatSingle = "Jan 2, 2006"
+    dateFormatList = "Jan 2, 2006"
 
     [languages.en.params.logo]
-      logoText = "hello friend"
+      logoText = "the sound of musq"
       logoHomeLink = "/"
     # or
     #
