@@ -17,7 +17,7 @@ US export law ([source]
 (https://www.wikiwand.com/en/Pretty_Good_Privacy#/Criminal_investigation))
 - Pavel Durov and his journey of Telegram
 ([source](http://fortune.com/telegram-pavel-durov-mobile-world-congress/))
-- Elon musk on becoming a spacefaring civilization makes him get up
+- Elon Musk on becoming a spacefaring civilization makes him get up
 in the morning ([source](https://youtu.be/zu7WJD8vpAQ?t=1724))
 
 **I believe in privacy as a fundamental right.**
