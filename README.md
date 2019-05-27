@@ -12,4 +12,4 @@ This repo manages the source code for https://musq.github.io
 1. Clone this repo and `cd` into it
 1. Run `git submodule update --init` to update submodules
 1. Run `hugo server -t hello-friend` to serve blog on localhost
-1. Run `./deploy <commit message>` to deploy on https://musq.github.io
+1. Run `./deploy.sh <commit message>` to deploy on https://musq.github.io
