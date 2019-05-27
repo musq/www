@@ -26,3 +26,9 @@ On a lighter note, I occasionally make sketch portraits of happy
 people :)
 
 Enjoy!
+
+---
+
+### GPG Public Key
+
+[ashish.gpg](/certificates/ashish.gpg)
