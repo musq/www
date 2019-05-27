@@ -10,10 +10,10 @@ Over the past couple of years I've encountered some really beautiful
 stories, tools and lessons on the internet. Few of them have had
 significant impact on my life in terms of organization, thought
 process, decision making, and productivity. This blog is supposed to
-be a collection of them. For the sake of brevity, I'll try to keep the
+reflect my understanding of them. For the sake of brevity, I'll try to keep the
 length of each post as concise as I possibly can.
 
-Hopefully, you'll find them as interesting as have I.
+Hopefully, you'll find them interesting.
 
 Inspirations ---
 
