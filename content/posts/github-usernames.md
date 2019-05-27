@@ -22,7 +22,7 @@ My quest began manually with initial candidates as *ashr*, *friday*,
 *ranj*, *aran*, etc. **All of them turned out to be taken.** It soon
 became clear to me that this method isn't going to work.
 
-> *Why do it manually, when a machine can do it for you*
+> ***Why do it manually, when a machine can do it for you!***
 
 It was time to fire up python. I wrote a script to ---
 
@@ -36,8 +36,8 @@ doesn't exist. So, it's available. Store this username in a file
 
 I let the script run overnight with a 0.2 second delay between each
 request (to avoid being blacklisted by Github for spamming their
-servers). Out came 516 usernames, of which I shortlisted 16 fitting
-the aforementioned four criteria.
+servers). Out came 516 usernames, of which **I shortlisted 16 fitting
+the aforementioned four criteria**.
 
 *byof*, *taby*, *cifo*, *ryhy*, *tdry*, *psod*, *jesi*, *udti*,
 *ipby*, etc.
@@ -45,8 +45,8 @@ the aforementioned four criteria.
 These were potentially good candidates for random words, but there
 was something I hadn't explored yet.
 
-> *Could it be that I was missing out on some good dictionary words?
-> I must be, right?*
+> ***Could it be that I was missing out on some good dictionary words?
+> I must be, right?***
 
 To weed out this possibility, I rewrote step 1 to iterate over
 3, 4, 5, and 6 letter dictionary words. The script ran for 6 hours
@@ -57,7 +57,7 @@ me over half hour to shortlist 53 out of them.
 *train*, *spor*, *render*, *butyne*, *upcut*, *riser*, *talc*,
 *brand*, *frenzy*, *july*, *swab*, etc.
 
-> *Wow! There are so many good options. I don't know what's best.*
+> ***Wow! There are so many good options. I don't know what's best.***
 
 I gave 5 people this list and asked them to anonymously pick a maximum
 of 10 names that they considered the best. From the responses I figured
@@ -118,7 +118,7 @@ No worries, we'll get back to manual hunting.
 
 *musy* - Unavailable
 
-*musq* - Bingo!
+***musq*** **- Bingo!**
 
 Well, that was quick. I guess humans win this round. Interestingly,
 it was a good ride of two days. Got to learn new stuff.
