@@ -21,6 +21,9 @@ Inspirations ---
 integrate productive command line tools in GNU+Linux
 - [Inconsolation](https://inconsolation.wordpress.com/) - Blog
 discussing lots of unix tools in short posts
+- [The dreamer who loves shoes and silliness]
+(https://thedreamerwholovesshoesandsilliness.wordpress.com) - Lovely
+poems and prose
 
 ---
 
