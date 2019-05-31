@@ -2,6 +2,7 @@
 title = "Time machine"
 date = "2019-07-02"
 description = "Inspiration is perishable."
+tags = ["quote"]
 +++
 
 > *We all have ideas. Ideas are immortal. They last forever.*
@@ -14,4 +15,4 @@ description = "Inspiration is perishable."
 >
 > *Inspiration is a magical thing, a productivity multiplier, a motivator. But it won’t wait for you. Inspiration is a now thing. If it grabs you, grab it right back and put it to work.*
 
-Excerpt From: Jason Fried --- "Rework"
+> **--- Jason Fried, "Rework"**
