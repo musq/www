@@ -2,6 +2,7 @@
 title = "Perfection"
 date = "2019-06-26"
 description = "What is so great about being perfect?"
+tags = ["musing"]
 +++
 
 What is so great about being perfect? Why do we want to attain the pinnacle? A peak points to the fact that we can do absolutely nothing more to improve. Everything else is inferior. It implies ego. Let's be honest. Perfection is narcissism.
