@@ -1,7 +1,8 @@
 +++
-title = "Fiction - Earth"
-date = "2019-06-02"
+title = "Reboot"
+date = "2019-06-16"
 description = "Nature brings new life builds on the Earth server every couple"
+tags = ["fiction"]
 +++
 
 Nature brings new life builds on the Earth server every couple of
