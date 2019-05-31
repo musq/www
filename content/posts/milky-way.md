@@ -1,7 +1,8 @@
 +++
-title = "Fiction - Milky way"
-date = "2019-06-02"
+title = "Milky way"
+date = "2019-06-09"
 description = "A long long time ago, everybody lived happily."
+tags = ["fiction"]
 +++
 
 A long long time ago, everybody lived happily. Bright lights made up
