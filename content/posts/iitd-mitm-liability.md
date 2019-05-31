@@ -1,19 +1,19 @@
 +++
-title = "IIT Delhi MITM liability"
-date = "2019-06-09"
-description = "How secure is IIT Delhi from Man-in-the-middle (MITM) attack?"
+title = "IIT Delhi's MITM liability"
+date = "2019-06-02"
+description = "How secure is IIT Delhi from Man-in-the-middle (MITM) attacks?"
 +++
 
-How secure is IIT Delhi from Man-in-the-middle (MITM) attack?
+How secure is IIT Delhi from Man-in-the-middle (MITM) attacks?
 
-I'm writing this 6 months after privately emailing IITD sysadmin
+I'm publishing this 6 months after privately emailing IITD sysadmin
 notifying them about a critical vulnerability, to have them fix
 it properly.
 
 ### Facts
 
 1. The institute asks its users to install a CA certificate issued by
-itself to secure communications
+itself to secure internal communications
 1. The official download link for the CA certificate is hosted on an
 unencrypted [plain HTTP page]
 (http://www.cc.iitd.ac.in/CSC/index.php?option=com_content&view=article&id=53&Itemid=57)
@@ -34,8 +34,8 @@ start an SSL encrypted session.
 
 Focus on the 3rd step.
 
-> *The browser checks to see whether or not it trusts the SSL
-> certificate.*
+> ***The browser checks to see whether or not it trusts the SSL
+> certificate.***
 
 How?
 
@@ -57,19 +57,24 @@ pretty simple, right? Yes, indeed.
 However, this simplicity comes with a very interesting and challenging
 possibility.
 
-> What if one of those root certificates belongs to a malicious actor?
+> ***What if one of those root certificates belong to a malicious
+> actor?***
 
 In that case, it's game over! All the communication between your
-computer and any other web server is compromised, even if it happens
-over HTTPS.
+computer and **any other web server** is compromised, even if it
+happens over HTTPS.
 
-1. A malicious actor installs his bad certificate as a trusted root
-on your computer
-1. You send a request to a web server
-1. Malicious actor intercepts the request and decrypts the messages
-using his certificate
-1. He re-encrypts said messages using web server's certificate and
-forwards it to the web server
+1. A malicious actor installs his bad certificate as a trusted root on
+your computer.
+1. You send a request to any web server. Cerficate exchange is about to
+begin.
+1. Malicious actor intercepts the request and pretends to be the said
+web server and responds with his certificate. Since his certificate is
+already present on your system, you trust it.
+1. He also initiates another connection with the web server pretending
+to be you.
+1. All further communcations between you and the web server go through
+him.
 
 The malicious actor is sitting in the middle of you and the web server,
 and neither of you knows about it. This is called a **Man in the middle
@@ -82,10 +87,10 @@ Since the official link to download the CA certificate is published on
 a [plain HTTP page]
 (http://www.cc.iitd.ac.in/CSC/index.php?option=com_content&view=article&id=53&Itemid=57)
 , anyone can inject a malicious link instead. The content of this page
-can also be modified to show modified SHA1 & MD5 hashes. An innocent
+can also be modified to show modified SHA1 & MD5 hashes. An uninformed
 user will follow that link to download the malicious certificate and
-install it as a Trusted Root on his machine compromising all of his
-future communications.
+install it as a Trusted Root on his machine **compromising all of his
+future communications**.
 
 ### Vulnerability reporting
 
@@ -101,7 +106,8 @@ I sent the following email to the sysadmin sharing my concerns on
 ### Response
 
 I received no response. However, the relevant page was updated
-accordingly on **Nov 30, 2018**, with the following changes ---
+accordingly on **Nov 30, 2018 (within a day)**, with the following
+changes ---
 
 - The download link was migrated to HTTPS
 - SHA1 and MD5 fingerprint hashes added
@@ -116,7 +122,7 @@ accordingly on **Nov 30, 2018**, with the following changes ---
 
 Although the certificate download link has been migrated to HTTPS, the
 page on which it is hosted is still served on plain HTTP. A grave
-vulnerability, as explained above.
+vulnerability, [as explained above](#back-to-iit-delhi).
 
 ### Proposals
 
@@ -129,7 +135,7 @@ the IITD resources are only available over HTTPS.
 - Since [SHA1](https://shattered.io) and [MD5 aren't secure]
 (https://security.stackexchange.com/questions/19906/is-md5-considered-insecure)
 , SHA2 should be used instead, for fingerprints.
-- Everybody in the IIT Delhi campus should be informed about the risks
+- Everyone in the IITD campus should be informed about the risks
 associated with using an insecure connection.
 
 ### Conclusion
