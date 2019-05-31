@@ -2,6 +2,7 @@
 title = "IIT Delhi's MITM liability"
 date = "2019-06-02"
 description = "How secure is IIT Delhi from Man-in-the-middle (MITM) attacks?"
+tags = ["adventure", "security"]
 +++
 
 How secure is IIT Delhi from Man-in-the-middle (MITM) attacks?
@@ -20,7 +21,7 @@ unencrypted [plain HTTP page]
 
 ### SSL certificates and MITM attacks
 
-Before we continue, let's understand how SSL (CA) certificates work.
+Before we continue, let's understand how SSL (CA) certificates work ([source](https://www.entrustdatacard.com/pages/ssl)).
 
 1. A browser attempts to connect to a website (i.e. a web server)
 secured with SSL. The browser requests that the web server identify
@@ -145,9 +146,3 @@ campus. Since most of the users have no idea about this issue, the
 ensuing disaster would be enormous. IIT Delhi should follow other IITs
 such as [Kanpur](https://iitk.ac.in/), [Madras](https://www.iitm.ac.in/)
 , [Roorkee](https://www.iitr.ac.in/) who serve their pages over HTTPS.
-
----
-
-### Sources
-
-[How Does SSL Work?](https://www.entrustdatacard.com/pages/ssl)
