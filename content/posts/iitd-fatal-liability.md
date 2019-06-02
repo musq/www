@@ -1,7 +1,7 @@
 +++
-title = "IIT Delhi's MITM liability"
+title = "IIT Delhi's fatal liability"
 date = "2019-06-02"
-description = "How secure is IIT Delhi from Man-in-the-middle (MITM) attacks?"
+description = "How secure is IIT Delhi from Man-in-the-middle attacks?"
 tags = ["adventure", "security"]
 +++
 
@@ -21,7 +21,8 @@ unencrypted [plain HTTP page]
 
 ### SSL certificates and MITM attacks
 
-Before we continue, let's understand how SSL (CA) certificates work ([source](https://www.entrustdatacard.com/pages/ssl)).
+Before we continue, let's understand how SSL (CA) certificates work
+([source](https://www.entrustdatacard.com/pages/ssl)).
 
 1. A browser attempts to connect to a website (i.e. a web server)
 secured with SSL. The browser requests that the web server identify
@@ -133,9 +134,10 @@ HTTPS. A free SSL certificate can be generated using [Certbot]
 - All HTTP requests must automatically be redirected to HTTPS.
 - The servers should also be set up with HSTS enabled, so that all of
 the IITD resources are only available over HTTPS.
-- Since [SHA1](https://shattered.io) and [MD5 aren't secure]
+- Fingerprints --- Since [SHA1](https://shattered.io) and [MD5 aren't
+secure]
 (https://security.stackexchange.com/questions/19906/is-md5-considered-insecure)
-, SHA2 should be used instead, for fingerprints.
+, SHA2 should be used instead.
 - Everyone in the IITD campus should be informed about the risks
 associated with using an insecure connection.
 
