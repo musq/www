@@ -31,4 +31,13 @@ Enjoy!
 
 ### GPG Public Key
 
-[ashish.gpg](/certificates/ashish.gpg)
+[ashish-C6976479.gpg](/certificates/ashish-C6976479.gpg)
+
+To import this key, run
+`gpg --import /path/to/ashish-C6976479.gpg`
+
+<br>
+
+---
+
+All of the content on this blog is my personal opinion, and in no way reflects those of my employers, past or present.
