@@ -46,6 +46,10 @@ paginate = 10
         identifier = "archive"
         name = "Archive"
         url = "/archive"
+      [[languages.en.menu.main]]
+        identifier = "telegram"
+        name = "Telegram"
+        url = "/telegram"
       # [[languages.en.menu.main]]
       #   identifier = "showcase"
       #   name = "Showcase"
