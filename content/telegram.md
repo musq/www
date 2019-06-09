@@ -12,8 +12,8 @@ over it
 
 Hence, I use a Telegram channel to communicate.
 
-To get notified on new posts, please **follow the Telegram channel**
-[t.me/soundofmusq](https://t.me/soundofmusq)
+To get notified on new posts, please follow
+[**t.me/soundofmusq**](https://t.me/soundofmusq)
 
 or, scan this QR Code on mobile
 
