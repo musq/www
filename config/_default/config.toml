@@ -3,16 +3,6 @@ languageCode = "en-us"
 theme = "hugo-theme-hello-friend"
 paginate = 5
 
-[params]
-  # dir name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
-  # "light" or "dark"
-  defaultTheme = "light"
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 1
-  # Enable to show reading time in minutes for posts
-  showReadingTime = true
-
 [languages]
   [languages.en]
     title = "The sound of musq"
@@ -32,10 +22,6 @@ paginate = 5
     [languages.en.params.logo]
       logoText = "the sound of musq"
       logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -50,7 +36,3 @@ paginate = 5
         identifier = "telegram"
         name = "Telegram"
         url = "/telegram"
-      # [[languages.en.menu.main]]
-      #   identifier = "showcase"
-      #   name = "Showcase"
-      #   url = "/showcase"
