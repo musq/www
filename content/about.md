@@ -15,6 +15,9 @@ society fascinate me.
 - Phil Zimmermann released PGP's source code as a book to get around
 US export law ([source]
 (https://www.wikiwand.com/en/Pretty_Good_Privacy#/Criminal_investigation))
+- Richard Stallman created GNU operating system after being denied
+Xerox printer's source code ([source]
+(https://en.wikipedia.org/wiki/Richard_Stallman#Events_leading_to_GNU))
 - Pavel Durov and his journey of Telegram
 ([source](http://fortune.com/telegram-pavel-durov-mobile-world-congress/))
 - Elon Musk on becoming a spacefaring civilization makes him get up
