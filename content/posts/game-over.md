@@ -1,6 +1,6 @@
 +++
 title = "Game over"
-date = "2019-06-09"
+date = "2019-12-29"
 description = "Wise words from Google."
 tags = ["quote"]
 +++

@@ -1981,6 +1981,9 @@ GitHub pull request page using:
 
 ### Owners/Maintainers
 
+- Always make sure your project has a license as the first commit before
+any other code
+
 Whether you maintain a canonical repository or want to help by
 verifying or approving patches, you need to know how to accept work
 in a way that is the clearest for other contributors and sustainable by

@@ -1,6 +1,6 @@
 +++
 title = "90 percent"
-date = "2019-07-26"
+date = "2019-12-01"
 description = "The first 90% of a project takes 90% of the time"
 tags = ["quote"]
 +++

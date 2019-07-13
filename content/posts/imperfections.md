@@ -1,6 +1,6 @@
 +++
-title = "Perfection"
-date = "2019-06-26"
+title = "Imperfections"
+date = "2019-12-04"
 description = "What is so great about being perfect?"
 tags = ["musing"]
 +++

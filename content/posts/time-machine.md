@@ -1,9 +1,11 @@
 +++
 title = "Time machine"
-date = "2019-07-02"
+date = "2019-12-26"
 description = "Inspiration is perishable."
 tags = ["quote"]
 +++
+
+Inspiration is perishable.
 
 > *We all have ideas. Ideas are immortal. They last forever.*
 >
