@@ -1,14 +1,16 @@
 +++
 title = "Game over"
-date = "2019-12-29"
+date = "2019-10-12"
 description = "Wise words from Google."
 tags = ["quote"]
 +++
 
+Wise words from Google.
+
 > *If an attacker successfully injects* ***any*** *code at all, it’s
 > pretty much game over.*
 
-> **--- Wise words from Google**
+> **--- Google**
 
 ---
 
