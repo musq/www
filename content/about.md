@@ -35,10 +35,10 @@ Enjoy!
 
 ### GPG Public Key
 
-[ashish-C6976479.gpg](/certificates/ashish-C6976479.gpg)
+[ashish-C6976479](https://raw.githubusercontent.com/musq/bc/master/pubkey.txt)
 
 To import this key, run
-`gpg --import /path/to/ashish-C6976479.gpg`
+`curl https://raw.githubusercontent.com/musq/bc/master/pubkey.txt | gpg --import`
 
 <br>
 
