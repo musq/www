@@ -7,10 +7,8 @@ tags = ["quote"]
 
 Wise words from Google.
 
-> *If an attacker successfully injects* ***any*** *code at all, it’s
-> pretty much game over.*
-
-> **--- Google**
+> ***If an attacker successfully injects any code at all, it’s
+> pretty much game over.***
 
 ---
 
