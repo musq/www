@@ -2,7 +2,7 @@
 title = "Game over"
 date = "2019-10-12"
 description = "Wise words from Google."
-tags = ["quote"]
+tags = ["quote", "security"]
 +++
 
 Wise words from Google.
