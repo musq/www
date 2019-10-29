@@ -1,15 +1,62 @@
-# My website
+# www
 
-This repo manages the source code for https://musq.github.io
+Source code of — tug.ro
 
-### Tools
 
-- [Hugo](https://gohugo.io)
-- [Hello Friend theme](https://github.com/panr/hugo-theme-hello-friend)
+## Table of Contents
 
-### Installation
+- [Requirements](#requirements)
+- [Install](#install)
+- [Build](#build)
+- [Deploy](#deploy)
+- [License](#license)
 
-1. Clone this repo and `cd` into it
-1. Run `git submodule update --init` to update submodules
-1. Run `hugo server -t hello-friend` to serve blog on localhost
-1. Run `./deploy.sh <commit message>` to deploy on https://musq.github.io
+
+## Requirements
+
+| Dependencies | Purpose |
+|:---|:---|
+| [`Hugo`][hugo] | Static site compiler |
+| [`Hello Friend theme`][hello-friend-theme] | Custom theme |
+
+
+## Install
+
+```bash
+# Clone this repo
+git clone --recurse-submodules git@github.com:musq/www.git
+
+# Go inside
+cd www
+
+# Run local server
+hugo server -t hello-friend
+
+# Run local server (env - production)
+hugo server -t hello-friend --disableFastRender -e production
+```
+
+
+## Build
+
+```bash
+# Generate build
+hugo -t hello-friend
+```
+
+
+## Deploy
+
+Use [`www-config`][www-config] to deploy.
+
+
+## License
+
+The code is available under [GNU GPL v3, or later](LICENSE) license.
+
+
+<!-- Link labels: -->
+
+[hugo]: https://gohugo.io/
+[hello-friend-theme]: https://github.com/musq/hugo-theme-hello-friend
+[www-config]: https://github.com/musq/www-config
