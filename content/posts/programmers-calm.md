@@ -2,7 +2,8 @@
 title = "Programmer's calm"
 date = "2019-09-28"
 description = "When depression knocks the door."
-tags = ["serious"]
+categories = ["conversation"]
+tags = ["depression", "serious"]
 +++
 
 When depression knocks the door.

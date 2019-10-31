@@ -2,6 +2,7 @@
 title = "Milky way"
 date = "2019-06-22"
 description = "A long long time ago, everybody lived happily."
+categories = ["musing"]
 tags = ["fiction"]
 +++
 

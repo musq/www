@@ -2,7 +2,8 @@
 title = "MicroPython"
 date = "2019-10-26"
 description = "There is still a place for innovation."
-tags = ["conversation"]
+categories = ["conversation"]
+tags = ["embedded", "iot", "python"]
 +++
 
 There is still a place for innovation.

@@ -2,7 +2,8 @@
 title = "A beautiful word"
 date = "2019-05-28"
 description = "Ganbatte --- Cheer up, Be courageous, Do your best."
-tags = ["happy"]
+categories = ["happy"]
+tags = ["beautiful"]
 +++
 
 <img class="post-image post-image-75" src="/img/ganbatte.jpg" alt="Ganbatte roomba-san">

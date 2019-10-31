@@ -2,6 +2,7 @@
 title = "Privacy vs Secrecy"
 date = "2019-06-08"
 description = "Go to Google purchases."
+categories = ["security"]
 tags = ["privacy"]
 +++
 

@@ -2,7 +2,8 @@
 title = "Git demystified"
 date = "2019-07-06"
 description = "How does git work internally?"
-tags = ["tutorial"]
+categories = ["tutorial"]
+tags = ["git", "pro", "tool", "workflow"]
 +++
 
 

@@ -2,7 +2,8 @@
 title = "Github usernames"
 date = "2019-05-26"
 description = "How hard is it to change Github username to a short word?"
-tags = ["adventure"]
+categories = ["hackathon"]
+tags = ["adventure", "github", "python"]
 +++
 
 How hard is it to change Github username to a short word?

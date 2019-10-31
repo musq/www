@@ -2,7 +2,8 @@
 title = "IIT Delhi's fatal liability"
 date = "2019-06-02"
 description = "How secure is IIT Delhi from Man-in-the-middle attacks?"
-tags = ["adventure", "security"]
+categories = ["security"]
+tags = ["adventure", "college", "mitm", "ssl"]
 +++
 
 How secure is IIT Delhi from Man-in-the-middle (MITM) attacks?

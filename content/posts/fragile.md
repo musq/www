@@ -2,7 +2,8 @@
 title = "Fragile"
 date = "2019-07-20"
 description = "Ingredients are fairly simple."
-tags = ["musing"]
+categories = ["musing"]
+tags = ["poem"]
 +++
 
 Ingredients are fairly simple.
