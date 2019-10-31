@@ -34,6 +34,11 @@ paginate = 5
         url = "/about"
         weight = 1
       [[languages.en.menu.main]]
+        identifier = "categories"
+        name = "Categories"
+        url = "/categories"
+        weight = 2
+      [[languages.en.menu.main]]
         identifier = "tags"
         name = "Tags"
         url = "/tags"
