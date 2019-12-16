@@ -1,8 +1,8 @@
 +++
 title = "Time machine"
-date = "2019-12-26"
+date = "2019-12-16"
 description = "Inspiration is perishable."
-tags = ["quote"]
+categories = ["quote"]
 +++
 
 Inspiration is perishable.

@@ -1,6 +1,6 @@
 +++
 title = "Reboot"
-date = "2019-12-15"
+date = "2029-12-15"
 description = "Nature brings new life builds on the Earth server every couple"
 tags = ["fiction"]
 +++

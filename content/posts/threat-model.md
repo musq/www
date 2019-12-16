@@ -1,6 +1,6 @@
 +++
 title = "Threat model"
-date = "2019-12-02"
+date = "2029-12-02"
 description = "Security is not an absolute concept."
 +++
 
