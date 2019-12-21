@@ -3,6 +3,16 @@
 
 @import "{{ site.theme }}";
 
+.greater-icon {
+  height: 100%;
+  width: 1.05rem;
+}
+
+.greater-icon path {
+  stroke: currentColor;
+  stroke-width: 8px;
+}
+
 .footer-col {
   margin-bottom: unset;
 }
@@ -10,6 +20,30 @@
 .site-title {
   font-size: 24px;
   font-weight: 500;
+}
+
+@keyframes cursor{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.site-title-cursor {
+  -webkit-animation: cursor 1s infinite;
+  animation: cursor 1s infinite;
+  background: #fe5186;
+  border-radius: 1px;
+  display: inline-block;
+  height: 1.2rem;
+  margin-bottom: -2px;
+  margin-left: 5px;
+  width: 10px;
 }
 
 ul.social-media-list{
