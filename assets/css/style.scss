@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+.footer-col {
+  margin-bottom: unset;
+}
+
 .site-title {
   font-size: 24px;
   font-weight: 500;
