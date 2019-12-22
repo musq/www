@@ -78,11 +78,13 @@ ul.blog-nav{
 ul.social-media-list{
   margin-left: -5px;
   > li {
-    border: 1px solid #e8e8e8;
     display: inline-block;
-    margin: 0 5px;
-    padding: 3px 5px;
-    text-align: center;
+    > a {
+      border: 1px solid #e8e8e8;
+      margin: 0 5px;
+      padding: 5px 6px;
+      text-align: center;
+    }
   }
 }
 
