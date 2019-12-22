@@ -30,6 +30,8 @@ header_pages:
   - about.md
   - blog.md
 
+show_excerpts: true
+
 # Build settings
 theme: minima
 plugins:
