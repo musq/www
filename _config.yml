@@ -26,6 +26,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: musq
 rss: feed
 
+permalink: /blog/:title/
+
 header_pages:
   - about.md
   - blog.md
