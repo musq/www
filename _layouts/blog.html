@@ -2,25 +2,25 @@
 layout: default
 ---
 
-<div class="home">
+{% include blog_header.html active="blog" %}
 
-  <ul class="blog-nav">
-    <li><a href="">Blog</a></li>
-    <li><a href="">Category</a></li>
-    <li><a href="">Archive</a></li>
-  </ul>
+<div class="home">
 
   {%- if site.posts.size > 0 -%}
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
         </h3>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <p class="post-meta">
+          <span>{{ post.date | date: date_format }}</span>
+          • {% include category.html %}
+          <!-- — {% include read_time.html content=post.content %} -->
+        </p>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}

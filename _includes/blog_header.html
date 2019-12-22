@@ -1,0 +1,11 @@
+<!-- {% assign active = active %} -->
+{% if active == "blog" %}
+  {% assign blog-status = "active" %}
+{% elsif active == "category" %}
+  {% assign category-status = "active" %}
+{% endif %}
+
+<ul class="blog-nav">
+  <li class={{ blog-status }}><a href="{{ site.baseurl }}/blog/">Blog</a></li>
+  <li class={{ category-status }}><a href="{{ site.baseurl }}/category/">Category</a></li>
+</ul>

@@ -16,7 +16,11 @@ ul.blog-nav{
     font-size: 24px;
     margin-bottom: 20px;
     text-align:center;
-    width: 33%;
+    width: 50%;
+  }
+  & > li.active {
+    color: #111;
+    text-decoration: underline;
   }
 }
 
@@ -32,6 +36,10 @@ ul.blog-nav{
 
 .footer-col {
   margin-bottom: unset;
+}
+
+.post-link {
+  margin-bottom: -15px;
 }
 
 .site-footer {
