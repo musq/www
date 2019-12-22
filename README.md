@@ -54,9 +54,14 @@ Use [`www-config`][www-config] to deploy.
 
 The code is available under [GNU GPL v3, or later](LICENSE) license.
 
+Some parts have been taken from
+[hugo-theme-hello-friend][hugo-theme-hello-friend], so MIT license
+applies to those parts.
+
 
 <!-- Link labels: -->
 
 [bundler]: https://bundler.io/
 [jekyll]: https://jekyllrb.com/
 [www-config]: https://github.com/musq/www-config
+[hugo-theme-hello-friend]: https://github.com/panr/hugo-theme-hello-friend
