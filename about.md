@@ -37,4 +37,5 @@ Enjoy!
 
 ---
 
-All of the content on this blog is my personal opinion, and in no way reflects those of my employers, past or present.
+All of the content on this website is my personal opinion, and in no way
+reflects those of my employers, past or present.
