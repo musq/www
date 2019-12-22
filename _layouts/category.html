@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% include blog_header.html %}
+
+<div id="category">
+{% for category in site.categories %}
+  <div class="category-group">
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+
+    <h3 id="{{ category_name | slugize | downcase }}" class="category-head">
+        {{ category_name }}
+    </h3>
+    <a name="{{ category_name | slugize | downcase }}"></a>
+    <ul>
+      {% for post in site.categories[category_name] %}
+        <li><article class="category-item">
+          <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+        </article></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+</div>
