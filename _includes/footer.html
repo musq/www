@@ -31,3 +31,19 @@
   </div>
 
 </footer>
+
+{%- if site.isso -%}
+  <!-- begin isso -->
+  <script
+    data-isso={{ site.isso.host }}
+    data-isso-reply-to-self="true"
+    data-isso-max-comments-top="10"
+    data-isso-max-comments-nested="5"
+    data-isso-reveal-on-click="5"
+    data-isso-vote="true"
+    data-isso-vote-levels="0,3,6"
+    data-isso-feed="true"
+    src="/assets/js/isso.min.js">
+  </script>
+  <!-- end isso -->
+{%- endif -%}
