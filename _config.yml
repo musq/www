@@ -18,22 +18,25 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# General
 title: the sound of musq
 author: Ashish Ranjan
 description: This website supports software freedom.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Social
 github_username: musq
 rss: feed
 
 permalink: /blog/:title/
+show_excerpts: true
 
 header_pages:
   - about.md
   - blog.md
 
-show_excerpts: true
-
+# Comments
 isso:
   host: https://tug.ro/isso/
 
