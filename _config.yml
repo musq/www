@@ -35,7 +35,7 @@ header_pages:
 show_excerpts: true
 
 isso:
-  host: https://blog.tug.ro/isso/
+  host: https://tug.ro/isso/
 
 # Build settings
 theme: minima
