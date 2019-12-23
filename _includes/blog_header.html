@@ -1,11 +1,10 @@
-<!-- {% assign active = active %} -->
-{% if active == "blog" %}
-  {% assign blog-status = "active" %}
-{% elsif active == "category" %}
-  {% assign category-status = "active" %}
-{% endif %}
+{% assign items = "blog category" | split: ' ' %}
 
 <ul class="blog-nav">
-  <li class={{ blog-status }}><a href="{{ site.baseurl }}/blog/">Blog</a></li>
-  <li class={{ category-status }}><a href="{{ site.baseurl }}/category/">Category</a></li>
+  {% for item in items %}
+    {% assign item_url = item | prepend: '/' | append: '/' %}
+    <li class="{% if item_url == page.url %}active{% endif %}">
+      <a href="{{ site.baseurl }}{{ item_url }}">{{ item | capitalize }}</a>
+    </li>
+  {% endfor %}
 </ul>

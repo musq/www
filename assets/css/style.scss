@@ -19,8 +19,7 @@ ul.blog-nav{
     width: 50%;
   }
   & > li.active {
-    color: #111;
-    text-decoration: underline;
+    font-weight: 600;
   }
 }
 
