@@ -53,6 +53,9 @@ ul.blog-nav{
 
 .post-link {
   margin-bottom: -15px;
+  &:hover {
+    background: #f5f5f5;
+  }
 }
 
 .site-footer {
