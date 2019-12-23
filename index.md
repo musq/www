@@ -11,7 +11,7 @@ layout: home
 |:-----------------:|:---------------------:|
 | [013B49A9](/key/) | [C6976479](/key-old/) |
 
-Import command: `curl -L <key-url> | gpg --import`
+Import command: `curl -L {{ site.url | split:'//' | last | split:'/' | first }}/key | gpg --import`
 
 ## Projects
 
