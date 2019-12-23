@@ -51,6 +51,16 @@ ul.blog-nav{
   margin-bottom: unset;
 }
 
+.post-back {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
+  width: fit-content;
+  > span {
+    font-size: 22px;
+  }
+}
+
 .post-link {
   margin-bottom: -15px;
   &:hover {
