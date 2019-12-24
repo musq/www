@@ -21,6 +21,7 @@
 # General
 title: the sound of musq
 author: Ashish Ranjan
+email: "*myfirstname*@tug.ro"
 description: This website supports software freedom.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tug.ro" # the base hostname & protocol for your site, e.g. http://example.com
