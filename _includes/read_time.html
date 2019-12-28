@@ -3,6 +3,6 @@
   {% if words < 300 %}
     1 min
   {% else %}
-    {{ words | divided_by:240 }} mins
+    {{ words | divided_by:240.0 | ceil }} min
   {% endif %}
 </span>
