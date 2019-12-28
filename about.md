@@ -28,7 +28,7 @@ in the morning ([source](https://youtu.be/zu7WJD8vpAQ?t=1724))
 
 **I believe in privacy as a fundamental right.**
 
-On a lighter note, I occasionally make sketch portraits of happy
+On a lighter note, I occasionally make [sketch portraits][my-sketches] of happy
 people :)
 
 Enjoy!
@@ -39,3 +39,6 @@ Enjoy!
 
 All of the content on this website is my personal opinion, and in no way
 reflects those of my employers, past or present.
+
+
+[my-sketches]: /blog/my-sketches/
