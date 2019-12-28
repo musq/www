@@ -19,7 +19,7 @@ layout: default
         <p class="post-meta">
           <span>{{ post.date | date: date_format }}</span>
           • {% include category.html %}
-          <!-- — {% include read_time.html content=post.content %} -->
+          — {% include read_time.html content=post.content %}
         </p>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
