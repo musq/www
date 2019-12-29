@@ -41,4 +41,4 @@ All of the content on this website is my personal opinion, and in no way
 reflects those of my employers, past or present.
 
 
-[my-sketches]: /blog/my-sketches/
+[my-sketches]: /{{ site.relativeurl.blog }}/my-sketches/

@@ -30,6 +30,9 @@ url: "https://tug.ro" # the base hostname & protocol for your site, e.g. http://
 github_username: musq
 rss: feed
 
+relativeurl:
+  blog: blog
+
 permalink: /blog/:title/
 show_excerpts: true
 
