@@ -11,7 +11,7 @@ layout: home
 |:-----------------:|:---------------------:|
 | [013B49A9](/key/) | [C6976479](/key-old/) |
 
-Import command: `curl -L {{ site.url | split:'//' | last | split:'/' | first }}/key | gpg --import`
+Import command: `curl -L {{ site.url }}/key | gpg --import`
 
 ## Projects
 
@@ -24,6 +24,15 @@ Import command: `curl -L {{ site.url | split:'//' | last | split:'/' | first }}/
 | [github-available-usernames][github-available-usernames] | Find out available usernames on GitHub |
 | [iitd-proxy-hack][iitd-proxy-hack] | Scripts to get unlimited network quota at IIT Delhi |
 
+## Self-hosted
+
+- [CyberChef][self-cyberchef] — The Cyber Swiss Army Knife
+([source][source-cyberchef])
+- [Isso][self-isso] — A commenting server similar to Disqus
+([source][source-isso])
+- [Miniflux][self-miniflux] — A minimalist and opinionated feed reader
+([source][source-miniflux])
+
 
 [syncs]: https://github.com/musq/syncs
 [vim-autobackup]: https://github.com/musq/vim-autobackup
@@ -31,3 +40,11 @@ Import command: `curl -L {{ site.url | split:'//' | last | split:'/' | first }}/
 [dotfiles]: https://github.com/musq/dotfiles
 [github-available-usernames]: https://github.com/musq/github-available-usernames
 [iitd-proxy-hack]: https://github.com/musq/iitd-proxy-hack
+
+[self-cyberchef]: cyberchef
+[self-isso]: isso/admin
+[self-miniflux]: https://read.{{ site.url }}
+
+[source-cyberchef]: https://github.com/gchq/cyberchef
+[source-isso]: https://github.com/posativ/isso
+[source-miniflux]: https://github.com/miniflux/miniflux
