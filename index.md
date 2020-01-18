@@ -9,7 +9,7 @@ layout: home
 
 |       Active      |          Old          |
 |:-----------------:|:---------------------:|
-| [013B49A9](/key/) | [C6976479](/key-old/) |
+| [013B49A9](/key) | [C6976479](/key-old) |
 
 Import command: `curl -L {{ site.url }}/key | gpg --import`
 
