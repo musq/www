@@ -31,14 +31,7 @@ in the morning ([source](https://youtu.be/zu7WJD8vpAQ?t=1724))
 On a lighter note, I occasionally make [sketch portraits][my-sketches] of happy
 people :)
 
-Enjoy!
+Check out the [source of this website][blog].
 
-<br>
-
----
-
-All of the content on this website is my personal opinion, and in no way
-reflects those of my employers, past or present.
-
-
+[blog]: https://github.com/musq/www
 [my-sketches]: /{{ site.relativeurl.blog }}/my-sketches/
