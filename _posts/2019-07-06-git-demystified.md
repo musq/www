@@ -13,10 +13,10 @@ understand the mechanics of Git.
 - This is a version controlled [living
 document](https://en.wikipedia.org/wiki/Living_document)
 - See its [earlier
-versions](https://github.com/musq/my-website/commits/master/content/posts/git-demystified.md)
+versions](https://github.com/musq/www/commits/master/_posts/2019-07-06-git-demystified.md)
 at GitHub
 - If you want to contribute, raise a Pull request
-- Or [file issues](https://github.com/musq/my-website/issues/new)
+- Or [file issues](https://github.com/musq/www/issues/new)
 to report bugs/inconsistencies
 
 **Last edited on — Dec 22, 2019**
