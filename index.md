@@ -32,6 +32,8 @@ Import command: `curl -L {{ site.url }}/key | gpg --import`
 ([source][source-isso])
 - [Miniflux][self-miniflux] — A minimalist and opinionated feed reader
 ([source][source-miniflux])
+- [Shiori][self-shiori] — Simple bookmark manager
+([source][source-shiori])
 
 
 [syncs]: https://github.com/musq/syncs
@@ -44,7 +46,9 @@ Import command: `curl -L {{ site.url }}/key | gpg --import`
 [self-cyberchef]: cyberchef
 [self-isso]: isso/admin
 [self-miniflux]: https://read.{{ site.url }}
+[self-shiori]: https://save.{{ site.url }}
 
 [source-cyberchef]: https://github.com/gchq/cyberchef
 [source-isso]: https://github.com/posativ/isso
 [source-miniflux]: https://github.com/miniflux/miniflux
+[source-shiori]: https://github.com/go-shiori/shiori
