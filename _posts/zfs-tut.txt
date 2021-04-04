@@ -1,0 +1,60 @@
+Create dpool with 3G dpool mirrored
+
+Show zpool, zfs list and df at the start
+
+Create a child dpool/data
+
+
+Copy an iso to pool
+
+Show list
+
+Delete iso
+
+Show list immediately
+
+Show list after a couple of seconds
+
+
+Copy iso
+
+Create snapshot 1
+
+Create snapshot 2
+
+Delete iso
+
+Create snapshot 3
+
+Delete snapshot 1
+
+Delete snapshot 3
+
+Delete snapshot 2
+
+
+
+Create 3 GB dataset
+
+Copy 2GB data
+
+Take snapshot
+
+Delete 2 GB data
+
+
+
+zpool history -i
+zpool events -v
+
+Detect issues with memory pressure, and L2ARC
+cat /proc/spl/kstat/zfs/dmu_tx
+
+Look at arc
+arcstat
+
+Check if any pool is in degraded state
+zpool status -x
+
+Disk IO
+zpool iostat
