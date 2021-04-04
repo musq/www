@@ -21,8 +21,6 @@ Xerox printer's source code
 ([source](https://en.wikipedia.org/wiki/Richard_Stallman#Events_leading_to_GNU))
 - Pavel Durov and his journey of Telegram
 ([source](https://fortune.com/longform/telegram-pavel-durov-mobile-world-congress/))
-- Elon Musk on becoming a spacefaring civilization makes him get up
-in the morning ([source](https://youtu.be/zu7WJD8vpAQ?t=1724))
 - Aaron Swartz and his fight for free and open information
 ([source](https://www.wikiwand.com/en/Aaron_Swartz#/United_States_v._Aaron_Swartz_case))
 
