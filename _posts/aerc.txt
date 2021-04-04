@@ -1,0 +1,83 @@
+$ git clone https://github.com/emersion/hydroxide.git
+$ cd hydroxide
+$ git checkout v0.2.15
+$ GO111MODULE=on go build ./cmd/hydroxide
+
+$ ./hydroxide auth ashish28ranjan@protonmail.com
+Password: ***********
+2FA TOTP code: ******
+Bridge password: ********************************************
+
+$ ./hydroxide serve
+2020/07/13 01:55:40 CardDAV server listening on 127.0.0.1:8080
+2020/07/13 01:55:40 IMAP server listening on 127.0.0.1:1143
+2020/07/13 01:55:40 SMTP server listening on 127.0.0.1:1025
+
+I leave hydroxide running here and on a new terminal, I try to set up aerc...
+
+$ aerc -v
+aerc 0.4.0
+
+$ aerc
+Name for this account? (e.g. 'Personal' or 'Work')
+> Personal
+
+Full name for outgoing emails? (e.g. 'John Doe')
+> Ashish Ranjan
+
+Your email address? (e.g. 'john@example.org')
+> ashish28ranjan@protonmail.com
+
+
+Configure incoming mail (IMAP)
+
+Username
+> ashish28ranjan@protonmail.com
+
+Password
+] ******************************************** (> this is my bridge password)
+
+Server address (e.g. 'mail.example.org' or 'mail.example.org:1313')
+> 127.0.0.1:1143
+
+Connection mode
+
+  [IMAP over SSL/TLS]     [IMAP with STARTTLS]     >[Insecure IMAP]<
+
+Connection URL: imap+insecure://ashish28ranjan%40protonmail.com:********************************************@127.0.0.1:1143
+
+
+Configure outgoing mail (SMTP)
+
+Username
+> ashish28ranjan@protonmail.com
+
+Password
+] ******************************************** (> this is my bridge password)
+
+Server address (e.g. 'mail.example.org' or 'mail.example.org:1313')
+> 127.0.0.1:1025
+
+Connection mode
+
+  [SMTP over SSL/TLS]     [SMTP with STARTTLS]     >[Insecure SMTP]<
+
+Connection URL: smtp+plain://ashish28ranjan%40protonmail.com:********************************************@127.0.0.1:1025
+
+Copy sent messages to 'Sent' folder?
+
+  >[Yes]<     [No]
+
+
+After finishing up, I see a red banner in footer that says:
+Invalid username or password
+
+
+
+
+
+
+https://doubleloop.net/2019/09/06/emacs-mu4e-mbsync-and-protonmail/
+https://www.ying-ish.com/essay/emacs-notmuch-mbsync-msmtp-email/
+https://wiki.archlinux.org/index.php/Notmuch
+
