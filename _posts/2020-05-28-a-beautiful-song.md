@@ -12,7 +12,7 @@ It's a conversation!
     id='ivplayer'
     width='640'
     height='360'
-    src='https://www.invidio.us/embed/zz5KauCbjPI'
+    src='https://invidious.kavin.rocks/embed/zz5KauCbjPI'
     style='border:none;'
 >
 </iframe>

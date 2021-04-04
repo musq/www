@@ -5,14 +5,15 @@ permalink: /about/
 ---
 
 Hi, I'm Ashish. I love computers and the endless possibilities they
-offer. Programming is to build beautiful products and contributing
-to the [vision of Mr. Richard Stallman](https://youtu.be/L4qNuoSwmPo).
+offer. Programming is to build beautiful products and contributing to
+the [vision of Mr. Richard
+Stallman](https://invidious.kavin.rocks/watch?v=L4qNuoSwmPo).
 
 Stories about people who challenged the system for upliftment of the
 society using software, fascinate me.
 
 - Steve Wozniak brought color to personal computers
-([source](https://youtu.be/uCRijF7lxzI))
+([source](https://invidious.kavin.rocks/watch?v=uCRijF7lxzI))
 - Phil Zimmermann released PGP's source code as a book to get around
 US export law
 ([source](https://www.wikiwand.com/en/Pretty_Good_Privacy#/Criminal_investigation))
