@@ -81,3 +81,72 @@ https://doubleloop.net/2019/09/06/emacs-mu4e-mbsync-and-protonmail/
 https://www.ying-ish.com/essay/emacs-notmuch-mbsync-msmtp-email/
 https://wiki.archlinux.org/index.php/Notmuch
 
+
+
+
+
+Welcome to aerc! Let's configure your account.
+
+This wizard supports basic IMAP & SMTP configuration.
+For other configurations, use <Ctrl+q> to exit and read the aerc-config(5) man page.
+Press <Tab> and <Shift+Tab> to cycle between each field in this form, or <Ctrl+j> and <Ctrl+k>.
+
+
+Name for this account? (e.g. 'Personal' or 'Work')
+> Personal
+
+Full name for outgoing emails? (e.g. 'John Doe')
+> Staging Ashish
+
+Your email address? (e.g. 'john@example.org')
+> staging@mcq.ro
+
+  [Next]
+
+
+
+
+Configure incoming mail (IMAP)
+
+Username
+> staging@mcq.ro
+
+Password
+] *************************
+
+Server address (e.g. 'mail.example.org' or 'mail.example.org:1313')
+> imap.migadu.com:993
+
+Connection mode
+
+  [IMAP over SSL/TLS]     [IMAP with STARTTLS]     [Insecure IMAP]
+
+Connection URL: imaps://staging%40mcq.ro:*************************@imap.migadu.com:993
+
+  [Previous]     [Next]
+
+
+
+
+Configure outgoing mail (SMTP)
+
+Username
+> staging@mcq.ro
+
+Password
+] *************************
+
+Server address (e.g. 'mail.example.org' or 'mail.example.org:1313')
+> smtp.migadu.com:465
+
+Connection mode
+
+  [SMTP over SSL/TLS]     [SMTP with STARTTLS]     [Insecure SMTP]
+
+Connection URL: smtps+plain://staging%40mcq.ro:*************************@smtp.migadu.com:465
+
+Copy sent messages to 'Sent' folder?
+
+  [Yes]     [No]
+
+  [Previous]     [Next]
