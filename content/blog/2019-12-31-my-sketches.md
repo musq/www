@@ -1,7 +1,5 @@
 ---
-layout: post
 title: My sketches
-categories: Happy
 ---
 
 A wonderful journey.

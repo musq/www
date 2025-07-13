@@ -1,7 +1,5 @@
 ---
-layout: post
 title: State, Art, Identity
-categories: Musing
 ---
 
 What is art? What makes a good artist?
@@ -40,9 +38,9 @@ How do we know about the aforementioned extraordinary events? We know
 them because of:
 
 - Cave paintings ([source](https://en.wikipedia.org/wiki/Lascaux)) -
-Tells us the *state* of relationship between Neanderthal and bulls
-- Edicts of Ashoka ([source](https://en.wikipedia.org/wiki/Gautama_Buddha#Earliest_sources)) - Tells us the *state* of when and where Buddha was born
-- Jacques-Louis David's paintings ([source](https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps)) - Tells us the *state* of what Napolean looked like, and his clothes
+  Tells us the _state_ of relationship between Neanderthal and bulls
+- Edicts of Ashoka ([source](https://en.wikipedia.org/wiki/Gautama_Buddha#Earliest_sources)) - Tells us the _state_ of when and where Buddha was born
+- Jacques-Louis David's paintings ([source](https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps)) - Tells us the _state_ of what Napolean looked like, and his clothes
 
 All forms of art, be it music, dance, painting, sculpture, poem, drama,
 design, folklore, or even a simple conversation are a method to

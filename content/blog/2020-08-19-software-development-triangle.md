@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Software Development Triangle
-categories: Musing
 ---
 
 Choose any two — Maintainable, Configurable, Speed.

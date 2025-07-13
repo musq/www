@@ -1,7 +1,5 @@
 ---
-layout: post
 title: A beautiful word
-categories: Happy
 ---
 
 Ganbatte --- Cheer up, Be courageous, Do your best.

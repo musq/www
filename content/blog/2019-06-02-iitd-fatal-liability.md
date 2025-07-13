@@ -1,7 +1,5 @@
 ---
-layout: post
 title: IIT Delhi's fatal liability
-categories: Security
 ---
 
 How secure is IIT Delhi from Man-in-the-middle attacks?
@@ -13,10 +11,10 @@ it properly.
 ### Facts
 
 1. The institute asks its users to install a CA certificate issued by
-itself to secure internal communications
+   itself to secure internal communications
 1. The official download link for the CA certificate is hosted on an
-unencrypted [plain HTTP
-page](http://www.cc.iitd.ac.in/CSC/index.php?option=com_content&view=article&id=53&Itemid=57)
+   unencrypted [plain HTTP
+   page](http://www.cc.iitd.ac.in/CSC/index.php?option=com_content&view=article&id=53&Itemid=57)
 
 ### SSL certificates and MITM attacks
 
@@ -24,19 +22,19 @@ Before we continue, let's understand how SSL (CA) certificates work
 ([source](https://www.entrustdatacard.com/pages/ssl)).
 
 1. A browser attempts to connect to a website (i.e. a web server)
-secured with SSL. The browser requests that the web server identify
-itself.
+   secured with SSL. The browser requests that the web server identify
+   itself.
 1. The web server sends the browser a copy of its SSL certificate.
 1. The browser checks to see whether or not it trusts this SSL
-certificate. If so, it sends a message to the web server.
+   certificate. If so, it sends a message to the web server.
 1. The web server sends back a digitally signed acknowledgment to
-start an SSL encrypted session.
+   start an SSL encrypted session.
 1. Encrypted data is shared between the browser and the web server.
 
 Focus on the 3rd step.
 
-> *The browser checks to see whether or not it trusts the SSL
-> certificate.*
+> _The browser checks to see whether or not it trusts the SSL
+> certificate._
 
 How?
 
@@ -45,7 +43,7 @@ the operating system. They are called **Trusted Root Certificates** and
 belong to organizations called **Certificate Authorities (CA)**. The
 CAs have the authority to digitally sign a web server's certificate
 implying to the world that they trust it. Thereby, the following
-***chain of trust*** is formed ---
+**_chain of trust_** is formed ---
 
 1. You trust the browser
 1. Browser trusts the OS
@@ -58,28 +56,27 @@ pretty simple, right? Yes, indeed.
 However, this simplicity comes with a very interesting and challenging
 possibility.
 
-> *What if one of those root certificates belong to a malicious actor?*
+> _What if one of those root certificates belong to a malicious actor?_
 
 In that case, it's game over! All the communication between your
 computer and **any other web server** is compromised, even if it
 happens over HTTPS.
 
 1. A malicious actor installs his bad certificate as a trusted root on
-your computer.
+   your computer.
 1. You send a request to any web server. Cerficate exchange is about to
-begin.
+   begin.
 1. Malicious actor intercepts the request and pretends to be the said
-web server and responds with his certificate. Since his certificate is
-already present on your system, you trust it.
+   web server and responds with his certificate. Since his certificate is
+   already present on your system, you trust it.
 1. He also initiates another connection with the web server pretending
-to be you.
+   to be you.
 1. All further communcations between you and the web server go through
-him.
+   him.
 
 The malicious actor is sitting in the middle of you and the web server,
 and neither of you knows about it. This is called a **Man in the middle
 (MITM) attack** and it is one of the most dangerous ones out there.
-
 
 ### Back to IIT Delhi
 
@@ -121,16 +118,16 @@ vulnerability, [as explained above](#back-to-iit-delhi).
 ### Proposals
 
 - All connections on the IITD public website should be served over
-HTTPS. A free SSL certificate can be generated using
-[Certbot](https://certbot.eff.org/) from LetsEncrypt CA.
+  HTTPS. A free SSL certificate can be generated using
+  [Certbot](https://certbot.eff.org/) from LetsEncrypt CA.
 - All HTTP requests must automatically be redirected to HTTPS.
 - The servers should also be set up with HSTS enabled, so that all of
-the IITD resources are only available over HTTPS.
+  the IITD resources are only available over HTTPS.
 - Fingerprints --- Since [SHA1](https://shattered.io) and [MD5 aren't
-secure](https://security.stackexchange.com/questions/19906/is-md5-considered-insecure)
-, SHA2 should be used instead.
+  secure](https://security.stackexchange.com/questions/19906/is-md5-considered-insecure)
+  , SHA2 should be used instead.
 - Everyone in the IITD campus should be informed about the risks
-associated with using an insecure connection.
+  associated with using an insecure connection.
 
 ### Conclusion
 

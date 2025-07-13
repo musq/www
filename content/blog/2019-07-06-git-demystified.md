@@ -1,9 +1,6 @@
 ---
-layout: post
-title: Git demystified
-categories: Tutorial
+title: Git Demystified
 ---
-
 
 How does git work internally?
 
@@ -11,137 +8,134 @@ This document is supposed to be a complete and concise guide to
 understand the mechanics of Git.
 
 - This is a version controlled [living
-document](https://en.wikipedia.org/wiki/Living_document)
+  document](https://en.wikipedia.org/wiki/Living_document)
 - See its [earlier
-versions](https://github.com/musq/www/commits/master/_posts/2019-07-06-git-demystified.md)
-at GitHub
+  versions](https://github.com/musq/www/commits/master/_posts/2019-07-06-git-demystified.md)
+  at GitHub
 - If you want to contribute, raise a Pull request
 - Or [file issues](https://github.com/musq/www/issues/new)
-to report bugs/inconsistencies
+  to report bugs/inconsistencies
 
 **Last edited on — Dec 22, 2019**
 
 <br>
 
-
 ## Table of contents
+
 ---
 
 1. [Introduction](#introduction)
-    - [Version Control Systems](#version-control-systems)
-    - [History](#history)
-    - [What is Git?](#what-is-git)
-        - [Snapshots, not Differences](#snapshots-not-differences)
-        - [Nearly every operation is
-        local](#nearly-every-operation-is-local)
-        - [Git has integrity](#git-has-integrity)
-        - [Git generally only adds data](#git-generally-only-adds-data)
-        - [Manager of trees](#manager-of-trees)
+   - [Version Control Systems](#version-control-systems)
+   - [History](#history)
+   - [What is Git?](#what-is-git)
+     - [Snapshots, not Differences](#snapshots-not-differences)
+     - [Nearly every operation is
+       local](#nearly-every-operation-is-local)
+     - [Git has integrity](#git-has-integrity)
+     - [Git generally only adds data](#git-generally-only-adds-data)
+     - [Manager of trees](#manager-of-trees)
 
 1. [Basic commands](#basic-commands)
-    - [Config](#config)
-    - [Help](#help)
-    - [Ignore](#ignore)
-    - [Init](#init)
-    - [Status](#status)
-    - [Add](#add)
-    - [Diff](#diff)
-    - [Commit](#commit)
-    - [Move](#move)
-    - [Remove](#remove)
-    - [Log](#log)
-    - [Grep](#grep)
-    - [Show](#show)
-    - [Clean](#clean)
-    - [Tags](#tags)
-    - [Stash](#stash)
-    - [Remote](#remote)
-    - [Fetch](#fetch)
-    - [Pull](#pull)
-    - [Push](#push)
-    - [Branch](#branch)
-    - [Reset](#reset)
-    - [Checkout](#checkout)
-    - [Reset vs Checkout](#reset-vs-checkout)
-    - [Cherry Pick](#cherry-pick)
-    - [Revert](#revert)
-    - [Merge](#merge)
-    - [Rebase](#rebase)
-        - [Rebase Hell](#rebase-hell)
-    - [Rebase vs Merge](#rebase-vs-merge)
-    - [Submodules](#submodules)
+   - [Config](#config)
+   - [Help](#help)
+   - [Ignore](#ignore)
+   - [Init](#init)
+   - [Status](#status)
+   - [Add](#add)
+   - [Diff](#diff)
+   - [Commit](#commit)
+   - [Move](#move)
+   - [Remove](#remove)
+   - [Log](#log)
+   - [Grep](#grep)
+   - [Show](#show)
+   - [Clean](#clean)
+   - [Tags](#tags)
+   - [Stash](#stash)
+   - [Remote](#remote)
+   - [Fetch](#fetch)
+   - [Pull](#pull)
+   - [Push](#push)
+   - [Branch](#branch)
+   - [Reset](#reset)
+   - [Checkout](#checkout)
+   - [Reset vs Checkout](#reset-vs-checkout)
+   - [Cherry Pick](#cherry-pick)
+   - [Revert](#revert)
+   - [Merge](#merge)
+   - [Rebase](#rebase)
+     - [Rebase Hell](#rebase-hell)
+   - [Rebase vs Merge](#rebase-vs-merge)
+   - [Submodules](#submodules)
 1. [Debugging](#debugging)
-    - [Blame](#blame)
-    - [Bisect](#bisect)
+   - [Blame](#blame)
+   - [Bisect](#bisect)
 1. [Tools](#tools)
-    - [Git Desktop](#git-desktop)
-    - [Git GUI](#git-gui)
-    - [Git Web](#git-web)
-    - [Credentials](#credentials)
-    - [Rerere (reuse recorded
-    resolution)](#rerere-reuse-recorded-resolution)
-    - [Reflog](#reflog)
-    - [Filter-branch](#filter-branch)
-    - [Bundle](#bundle)
-    - [Replace](#replace)
-    - [Rev parse](#rev-parse)
+   - [Git Desktop](#git-desktop)
+   - [Git GUI](#git-gui)
+   - [Git Web](#git-web)
+   - [Credentials](#credentials)
+   - [Rerere (reuse recorded
+     resolution)](#rerere-reuse-recorded-resolution)
+   - [Reflog](#reflog)
+   - [Filter-branch](#filter-branch)
+   - [Bundle](#bundle)
+   - [Replace](#replace)
+   - [Rev parse](#rev-parse)
 
 1. [Personalization](#personalization)
-    - [Attributes](#attributes)
-    - [Refspec](#refspec)
-    - [Hooks](#hooks)
-        - [Commit hooks](#commit-hooks)
-        - [Email hooks](#email-hooks)
-        - [Other hooks](#other-hooks)
+   - [Attributes](#attributes)
+   - [Refspec](#refspec)
+   - [Hooks](#hooks)
+     - [Commit hooks](#commit-hooks)
+     - [Email hooks](#email-hooks)
+     - [Other hooks](#other-hooks)
 
 1. [Workflows](#workflows)
-    - [Contributors](#contributors)
-        - [Generate pull request
-        template](#generate-pull-request-template)
-        - [Send commit patches via
-        email](#send-commit-patches-via-email)
-        - [Create pull requests on
-        GitHub](#create-pull-requests-on-github)
-    - [Owners/Maintainers](#owners-maintainers)
-        - [Merge patches from email](#merge-patches-from-email)
-        - [Merge pull requests on
-        GitHub](#merge-pull-requests-on-github)
-        - [Merge GitHub pull requests
-        locally](#merge-github-pull-requests-locally)
-            - [Using pull request
-            patches](#1-using-pull-request-patches)
-            - [Using pull request refs](#2-using-pull-request-refs)
+   - [Contributors](#contributors)
+     - [Generate pull request
+       template](#generate-pull-request-template)
+     - [Send commit patches via
+       email](#send-commit-patches-via-email)
+     - [Create pull requests on
+       GitHub](#create-pull-requests-on-github)
+   - [Owners/Maintainers](#owners-maintainers)
+     - [Merge patches from email](#merge-patches-from-email)
+     - [Merge pull requests on
+       GitHub](#merge-pull-requests-on-github)
+     - [Merge GitHub pull requests
+       locally](#merge-github-pull-requests-locally) - [Using pull request
+       patches](#1-using-pull-request-patches) - [Using pull request refs](#2-using-pull-request-refs)
 
 1. [Releases](#releases)
-    - [Semantic versioning](#semantic-versioning)
-    - [Generate Build number](#generate-build-number)
-    - [Prepare Assets](#prepare-assets)
-    - [GPG public key as tag](#gpg-public-key-as-tag)
+   - [Semantic versioning](#semantic-versioning)
+   - [Generate Build number](#generate-build-number)
+   - [Prepare Assets](#prepare-assets)
+   - [GPG public key as tag](#gpg-public-key-as-tag)
 
 1. [Internals](#internals)
-    - [Objects](#objects)
-    - [References](#references)
-        - [Remote refs](#remote-refs)
-    - [Packfiles](#packfiles)
-    - [Garbage collection](#garbage-collection)
-    - [Fsck](#fsck)
-    - [Removing objects](#removing-objects)
-    - [Environment variables](#environment-variables)
+   - [Objects](#objects)
+   - [References](#references)
+     - [Remote refs](#remote-refs)
+   - [Packfiles](#packfiles)
+   - [Garbage collection](#garbage-collection)
+   - [Fsck](#fsck)
+   - [Removing objects](#removing-objects)
+   - [Environment variables](#environment-variables)
 
 1. [Extras](#extras)
-    - [Bash/Zsh helpers](#bashzsh-helpers)
-    - [Bare Repo](#bare-repo)
-    - [Git on a server](#git-on-a-server)
-    - [Scripting GitHub](#scripting-github)
+   - [Bash/Zsh helpers](#bashzsh-helpers)
+   - [Bare Repo](#bare-repo)
+   - [Git on a server](#git-on-a-server)
+   - [Scripting GitHub](#scripting-github)
 
 1. [Source](#source)
 
 <br>
 
-
 ## Introduction
----
 
+---
 
 ### Version Control Systems
 
@@ -150,16 +144,15 @@ files over time so that you can recall specific versions later. There
 are three types of version control systems:
 
 1. **Local** --- LVCS has a simple database that locally keeps all the
-changes to files under revision control. e.g. RCS
+   changes to files under revision control. e.g. RCS
 1. **Centralized** --- CVCS has a single server that contains all the
-versioned files, and a number of clients that check out files from that
-central place. Clients don't have all the history at a time. e.g.
-Subversion, Perforce
+   versioned files, and a number of clients that check out files from that
+   central place. Clients don't have all the history at a time. e.g.
+   Subversion, Perforce
 1. **Distributed** --- DVCS clients don’t just check out the latest
-snapshot of the files; rather, they fully mirror the repository,
-including its full history. Every clone is really a full backup of all
-the data. e.g. Git, Mercurial, Bazaar
-
+   snapshot of the files; rather, they fully mirror the repository,
+   including its full history. Every clone is really a full backup of all
+   the data. e.g. Git, Mercurial, Bazaar
 
 ### History
 
@@ -172,18 +165,16 @@ Linux) began developing Git with the following goals ---
 - Speed
 - Simple design
 - Strong support for non-linear development (thousands of parallel
-branches)
+  branches)
 - Fully distributed
 - Able to handle large projects like the Linux kernel efficiently
-(speed and data size)
-
+  (speed and data size)
 
 ### What is Git?
 
 Git stores and thinks about information in a very different way, and
 understanding these differences will help you avoid becoming confused
 while using it.
-
 
 #### Snapshots, not Differences
 
@@ -201,7 +192,6 @@ stored. Git thinks about its data more like a stream of snapshots.
 
 ![Snapshots](/assets/img/git-demystified/snapshots.png)
 
-
 #### Nearly every operation is local
 
 Most operations in Git need only local files and resources to operate.
@@ -209,7 +199,6 @@ Generally no information is needed from another computer on your
 network. This also means that there is very little you can’t do if
 you’re offline. This may not seem like a huge deal, but you may be
 surprised what a big difference it can make.
-
 
 #### Git has integrity
 
@@ -225,7 +214,6 @@ hash. This is a 40-character string composed of hexadecimal characters
 (0–9 and a–f) and calculated based on the contents of a file or
 directory structure in Git.
 
-
 #### Git generally only adds data
 
 When you do actions in Git, nearly all of them only add data to the Git
@@ -233,7 +221,6 @@ database. It is hard to get the system to do anything that is not
 undoable or to make it erase data in any way. This makes using Git a
 joy because we know we can experiment without the danger of severely
 screwing things up.
-
 
 #### Manager of trees
 
@@ -258,10 +245,10 @@ and then to history.
 Each file in your working directory can be in one of two states:
 
 1. `tracked` - Files that were in the last snapshot; they can be
-`unmodified`, `modified`, or `staged`. In short, tracked files are
-files that Git knows about.
+   `unmodified`, `modified`, or `staged`. In short, tracked files are
+   files that Git knows about.
 1. `untracked` - Everything else — any files in your working directory
-that were not in your last snapshot and are not in your staging area.
+   that were not in your last snapshot and are not in your staging area.
 
 When you first clone a repository, all of your files will be tracked
 and unmodified because Git just checked them out and you haven’t
@@ -281,10 +268,9 @@ There are three types of commits:
 
 <br>
 
-
 ## Basic commands
----
 
+---
 
 ### Config
 
@@ -344,7 +330,6 @@ color.interactive
 color.status
 ```
 
-
 ### Help
 
 ```bash
@@ -354,7 +339,6 @@ git help config
 # Show concise options for config command
 git config -h
 ```
-
 
 ### Ignore
 
@@ -369,13 +353,13 @@ The rules for the patterns to put in the .gitignore file are as follows:
 
 - Blank lines or lines starting with `#` are ignored
 - Standard glob patterns work, and will be applied recursively
-throughout the entire working tree
+  throughout the entire working tree
 - You can start patterns with a forward slash `/` to avoid recursivity
 - You can end patterns with a forward slash `/` to specify a directory
 - You can negate a pattern by starting it with an exclamation point `!`
 
 Checkout GitHub's suggested ignore patterns for different languages.
-https://github.com/github/gitignore
+<https://github.com/github/gitignore>
 
 ```bash
 # See inside .gitignore
@@ -405,7 +389,6 @@ doc/*.txt
 doc/**/*.pdf
 ```
 
-
 ### Init
 
 ```bash
@@ -420,7 +403,6 @@ git clone https://github.com/musq/dotfiles
 git clone https://github.com/musq/dotfiles ~/my-dotfiles
 ```
 
-
 ### Status
 
 See the status of files.
@@ -432,7 +414,6 @@ git status
 # Short status
 git status -s
 ```
-
 
 ### Add
 
@@ -467,7 +448,6 @@ git reset file1 dir1/file2 dir2
 # Detailed explanation of the reset command is presented
 # later in a section below. Be sure to check it out.
 ```
-
 
 ### Diff
 
@@ -520,7 +500,6 @@ git commit -a -m "first commit"
 git commit --ammend -m "first commit - fix"
 ```
 
-
 ### Move
 
 ```bash
@@ -530,7 +509,6 @@ git mv file1 file2
 # Move and rename a file
 git mv file1 dir1/file2
 ```
-
 
 ### Remove
 
@@ -548,7 +526,6 @@ git rm --cached file
 # DANGEROUS - It's a safety feature, don't use casually
 git rm -f file
 ```
-
 
 ### Log
 
@@ -649,7 +626,6 @@ git log master...dev
 git log master...dev --left-right
 ```
 
-
 ### Grep
 
 ```bash
@@ -671,7 +647,6 @@ git grep -p searchterm
 # Group searches by files
 git grep --heading searchterm
 ```
-
 
 ### Show
 
@@ -702,7 +677,6 @@ git show HEAD~2
 git show HEAD^2~1
 ```
 
-
 ### Clean
 
 ```bash
@@ -731,7 +705,6 @@ git clean -x
 git clean -i
 ```
 
-
 ### Tags
 
 ```bash
@@ -759,7 +732,6 @@ git tag -d v1.9.2
 # Verify tag v1.9.2 for a valid signature
 git tag -v v1.9.2
 ```
-
 
 ### Stash
 
@@ -811,7 +783,6 @@ git stash pop
 git stash branch <new branchname>
 ```
 
-
 ### Remote
 
 ```bash
@@ -839,7 +810,6 @@ git remote rm musq
 git config --local remote.pushDefault origin
 ```
 
-
 ### Fetch
 
 `FETCH_HEAD` records the branch which you fetched from a remote
@@ -855,7 +825,6 @@ git fetch upstream
 # Fetch only master branch from upstream
 git fetch upstream master
 ```
-
 
 ### Pull
 
@@ -879,7 +848,6 @@ git rebase FETCH_HEAD
 # NOTE - Avoid use of pull. Instead use fetch + merge individually
 # It gives you more control over the steps
 ```
-
 
 ### Push
 
@@ -915,7 +883,6 @@ git push origin --tags
 # Delete tag v1.9.2 on the origin
 git push origin --delete v1.9.2
 ```
-
 
 ### Branch
 
@@ -981,10 +948,9 @@ git branch -u origin/serverfix
 git branch -u origin/serverfix master
 ```
 
-
 ### Reset
 
-**Highly Recommended** — https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified
+**Highly Recommended** — <https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified>
 
 ```bash
 # master - w7x8y9z (current branch)
@@ -1033,7 +999,6 @@ git reset a1b2c3d file
 # WD    - changed   (Any remaining changes in file are unstaged)
 ```
 
-
 ### Checkout
 
 ```bash
@@ -1063,7 +1028,6 @@ git checkout serverfix
 git checkout file
 ```
 
-
 ### Reset vs Checkout
 
 Follow the picture shown below.
@@ -1072,15 +1036,15 @@ Follow the picture shown below.
 So, `commit A` is the parent of `commit B`. Now let's run these two
 commands separately and observe the changes they cause.
 
-| `git reset master` | `git checkout master` |
-|:------------------:|:---------------------:|
+|      `git reset master`       |  `git checkout master`   |
+| :---------------------------: | :----------------------: |
 | Move current ref to other ref | Move `HEAD` to other ref |
 
 ![Reset vs Checkout](/assets/img/git-demystified/reset-vs-checkout.png)
 
-> *Reset moves the current reference to another tag, commit*
+> _Reset moves the current reference to another tag, commit_
 
-> *Checkout moves the current HEAD to another branch, tag, commit*
+> _Checkout moves the current HEAD to another branch, tag, commit_
 
 Here’s a cheat-sheet for which commands affect which trees. The "HEAD"
 column reads “REF” if that command moves the reference (branch) that
@@ -1088,18 +1052,16 @@ HEAD points to, and “HEAD” if it moves HEAD itself. Pay especial
 attention to the WD Safe? column — if it says NO, take a second to
 think before running that command.
 
-|                             |  HEAD |  Index |  Workdir | WD Safe? |
-|-----------------------------|:-----:|:------:|:--------:|:--------:|
-| **Commit Level**            |       |        |          |          |
-| `reset --soft [commit]`     |  REF  |  NO    |    NO    |    YES   |
-| `reset [commit]`            |  REF  | YES    |    NO    |    YES   |
-| `reset --hard [commit]`     |  REF  | YES    |    YES   |  **NO**  |
-| `checkout <commit>`         | HEAD  | YES    |    YES   |    YES   |
-| **File Level**              |       |        |          |          |
-| `reset [commit] <paths>`    |  NO   |  YES   |    NO    |    YES   |
-| `checkout [commit] <paths>` |  NO   | YES    |    YES   |  **NO**  |
-
-
+|                             | HEAD | Index | Workdir | WD Safe? |
+| --------------------------- | :--: | :---: | :-----: | :------: |
+| **Commit Level**            |      |       |         |          |
+| `reset --soft [commit]`     | REF  |  NO   |   NO    |   YES    |
+| `reset [commit]`            | REF  |  YES  |   NO    |   YES    |
+| `reset --hard [commit]`     | REF  |  YES  |   YES   |  **NO**  |
+| `checkout <commit>`         | HEAD |  YES  |   YES   |   YES    |
+| **File Level**              |      |       |         |          |
+| `reset [commit] <paths>`    |  NO  |  YES  |   NO    |   YES    |
+| `checkout [commit] <paths>` |  NO  |  YES  |   YES   |  **NO**  |
 
 ### Cherry Pick
 
@@ -1108,7 +1070,6 @@ think before running that command.
 git cherry-pick a1b2c3d
 ```
 
-
 ### Revert
 
 ```bash
@@ -1116,7 +1077,6 @@ git cherry-pick a1b2c3d
 # This is the compliment of cherry-pick
 git revert a1b2c3d
 ```
-
 
 ### Merge
 
@@ -1131,7 +1091,7 @@ you ran them.
 `Fast Forward Merge` happens when the source branch contains all of the
 commits from the destination branch.
 
-**Note** — *A merge commit has 2 parents.*
+**Note** — _A merge commit has 2 parents._
 
 ```bash
 # Merge dev branch into current branch
@@ -1204,9 +1164,9 @@ git log --cc -p
 # List the SHA1 hashes of the git blobs of the files during merging
 # Merging creates 3 files - common ancestor, LO (ours), RE (theirs)
 git ls-files -u
-# > 100644 8baef1b4abc478178b004d62031cf7fe6db6f903 1	hello.rb (common)
-# > 100644 79dc3eeea3f4fb9bf81661dcff917ca4706c386f 2	hello.rb (ours)
-# > 100644 cd470e619003f5e55999473fec485d85a8601e44 3	hello.rb (theirs)
+# > 100644 8baef1b4abc478178b004d62031cf7fe6db6f903 1 hello.rb (common)
+# > 100644 79dc3eeea3f4fb9bf81661dcff917ca4706c386f 2 hello.rb (ours)
+# > 100644 cd470e619003f5e55999473fec485d85a8601e44 3 hello.rb (theirs)
 
 # Access the contents of these blobs
 git show :1:hello.rb > hello.common.rb
@@ -1229,7 +1189,6 @@ git merge-file -p \
 # Subtree merge
 # https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging#_subtree_merge
 ```
-
 
 ### Rebase
 
@@ -1266,12 +1225,12 @@ Interactive rebasing `git rebase -i` comes with the following options ---
 - `l, label <label>` label current HEAD with a name
 - `t, reset <label>` reset HEAD to a label
 - `m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]`
-	create a merge commit using the original merge commit's
-    message (or the oneline, if no original merge commit was
-    specified). Use -c \<commit\> to reword the commit message.
+  create a merge commit using the original merge commit's
+  message (or the oneline, if no original merge commit was
+  specified). Use -c \<commit\> to reword the commit message.
 
-**Note** — *Always rebase your feature branch on the remote branch
-before opening a pull request.*
+**Note** — _Always rebase your feature branch on the remote branch
+before opening a pull request._
 
 ```bash
 # Interactive rebase
@@ -1300,19 +1259,17 @@ git rebase --abort
 git rebase --onto master server client
 ```
 
-
 #### Rebase Hell
 
 Always rebase your local branches. Never rebase any changes/commits
 which have been shared with other developers and they might have
 started working on top of it.
 
-> *Otherwise, a special room shall be booked for thou in hell.*
+> _Otherwise, a special room shall be booked for thou in hell._
 
 If you still do this montrosity, it'll be very difficult to merge any
 changes and keep track of everything. It'll be nothing less than a
 disaster.
-
 
 ### Rebase vs Merge
 
@@ -1330,10 +1287,9 @@ the manual for how to maintain your software deserves careful editing.
 This is the camp that uses tools like `rebase` and `filter-branch` to
 tell the story in the way that’s best for future readers.
 
-
 ### Submodules
 
-https://git-scm.com/book/en/v2/Git-Tools-Submodules
+<https://git-scm.com/book/en/v2/Git-Tools-Submodules>
 
 Submodules allow you to keep a Git repository as a subdirectory of
 another Git repository. This lets you clone another repository into
@@ -1451,7 +1407,6 @@ git config alias.supdate 'submodule update --remote --merge'
 
 <br>
 
-
 ## Debugging
 
 ---
@@ -1478,7 +1433,6 @@ git blame -L 69,82 Makefile
 # from elsewhere
 git blame -C -L 69,82 Makefile
 ```
-
 
 ### Bisect
 
@@ -1527,11 +1481,9 @@ git bisect run test-error.sh
 
 <br>
 
-
 ## Tools
 
 ---
-
 
 ### Git Desktop
 
@@ -1540,7 +1492,6 @@ git bisect run test-error.sh
 gitk
 ```
 
-
 ### Git GUI
 
 ```bash
@@ -1548,14 +1499,12 @@ gitk
 git gui
 ```
 
-
 ### Git Web
 
 ```bash
 # View git logs in browser
 git instaweb --httpd=webrick
 ```
-
 
 ### Credentials
 
@@ -1573,10 +1522,9 @@ git config --global credential.helper 'cache --timeout 3600'
 # https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage#_under_the_hood
 ```
 
-
 ### Rerere (reuse recorded resolution)
 
-https://git-scm.com/book/en/v2/Git-Tools-Rerere
+<https://git-scm.com/book/en/v2/Git-Tools-Rerere>
 
 ```bash
 # When rerere is enabled, Git will keep a set of pre- and post-images
@@ -1587,7 +1535,6 @@ https://git-scm.com/book/en/v2/Git-Tools-Rerere
 # Enable rerere in config
 git config --global rerere.enabled true
 ```
-
 
 ### Reflog
 
@@ -1604,7 +1551,6 @@ All the contents are stored in `.git/logs/*`
 git reflog
 ```
 
-
 ### Filter-branch
 
 Rewrite history in bulk.
@@ -1615,24 +1561,23 @@ git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 
 # Change email in git commits
 git filter-branch --commit-filter '
-	if [ "$GIT_AUTHOR_EMAIL" = "ashish@localhost" ];
-	then
-		GIT_AUTHOR_NAME="Ashish Ranjan";
-		GIT_AUTHOR_EMAIL="ashish@example.com";
-		git commit-tree "$@";
-	else
-		git commit-tree "$@";
-	fi' HEAD
+ if [ "$GIT_AUTHOR_EMAIL" = "ashish@localhost" ];
+ then
+  GIT_AUTHOR_NAME="Ashish Ranjan";
+  GIT_AUTHOR_EMAIL="ashish@example.com";
+  git commit-tree "$@";
+ else
+  git commit-tree "$@";
+ fi' HEAD
 ```
-
 
 ### Bundle
 
-https://git-scm.com/book/en/v2/Git-Tools-Bundling
+<https://git-scm.com/book/en/v2/Git-Tools-Bundling>
 
 ### Replace
 
-https://git-scm.com/book/en/v2/Git-Tools-Replace
+<https://git-scm.com/book/en/v2/Git-Tools-Replace>
 
 ### Rev parse
 
@@ -1644,11 +1589,9 @@ git rev-parse master
 
 <br>
 
-
 ## Personalization
 
 ---
-
 
 ### Attributes
 
@@ -1682,7 +1625,6 @@ database.xml merge=ours
 git config --global merge.ours.driver true
 ```
 
-
 ### Refspec
 
 Reference specifications can help you harness the full power of remotes.
@@ -1698,7 +1640,7 @@ a fast-forward.
 # See what's inside .git/config
 # > [remote "origin"]
 # >     url = https://github.com/musq/dotfiles
-# >	    fetch = +refs/heads/*:refs/remotes/origin/*
+# >     fetch = +refs/heads/*:refs/remotes/origin/*
 
 # List commits in origin/master
 git log origin/master
@@ -1741,10 +1683,9 @@ git push origin dev # pushes local dev branch to origin/qa/dev-o
 git push upstream dev # pushes local dev branch to upstream/qa/dev-u
 ```
 
-
 ### Hooks
 
-https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+<https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks>
 
 Git has a way to fire off custom scripts when certain important actions
 occur. There are two groups of these hooks: `client-side` and
@@ -1756,77 +1697,77 @@ of **client hooks** ---
 #### Commit hooks
 
 - `pre-commit` - Runs before you even type in a commit message. It’s
-used to inspect the snapshot that’s about to be committed, to see if
-you’ve forgotten something, to make sure tests run, or to examine
-whatever you need to inspect in the code.
+  used to inspect the snapshot that’s about to be committed, to see if
+  you’ve forgotten something, to make sure tests run, or to examine
+  whatever you need to inspect in the code.
 
 - `prepare-commit-msg` - Runs before the commit message editor is fired
-up but after the default message is created. It lets you edit the
-default message before the commit author sees it.
+  up but after the default message is created. It lets you edit the
+  default message before the commit author sees it.
 
 - `commit-msg` - Takes one parameter, which again is the path to a
-temporary file that contains the commit message written by the
-developer. You can use it to validate your project state or commit
-message before allowing a commit to go through.
+  temporary file that contains the commit message written by the
+  developer. You can use it to validate your project state or commit
+  message before allowing a commit to go through.
 
 - `post-commit` - Runs After the entire commit process is completed.
-Generally, this script is used for notification or something similar.
+  Generally, this script is used for notification or something similar.
 
 #### Email hooks
 
 - `pre-applypatch` - Runs after the patch is applied but before a commit
-is made, so you can use it to inspect the snapshot before making the
-commit. You can run tests or otherwise inspect the working tree with
-this script.
+  is made, so you can use it to inspect the snapshot before making the
+  commit. You can run tests or otherwise inspect the working tree with
+  this script.
 
 - `applypatch-msg` - Takes a single argument: the name of the temporary
-file that contains the proposed commit message. use this to make sure a
-commit message is properly formatted, or to normalize the message by
-having the script edit it in place.
+  file that contains the proposed commit message. use this to make sure a
+  commit message is properly formatted, or to normalize the message by
+  having the script edit it in place.
 
 - `post-applypatch` - Runs after the commit is made. You can use it to
-notify a group or the author of the patch you pulled in that you’ve
-done so. You can’t stop the patching process with this script.
+  notify a group or the author of the patch you pulled in that you’ve
+  done so. You can’t stop the patching process with this script.
 
 #### Other hooks
 
 - `pre-rebase` - Runs before you rebase anything and can halt the
-process by exiting non-zero. You can use this hook to disallow rebasing
-any commits that have already been pushed.
+  process by exiting non-zero. You can use this hook to disallow rebasing
+  any commits that have already been pushed.
 
 - `post-rewrite` - Run by commands that replace commits, such as git
-commit --amend and git rebase (though not by git filter-branch). Its
-single argument is which command triggered the rewrite, and it receives
-a list of rewrites on stdin. This hook has many of the same uses as the
-post-checkout and post-merge hooks.
+  commit --amend and git rebase (though not by git filter-branch). Its
+  single argument is which command triggered the rewrite, and it receives
+  a list of rewrites on stdin. This hook has many of the same uses as the
+  post-checkout and post-merge hooks.
 
 - `post-checkout` - Runs after a successful git checkout. you can use
-it to set up your working directory properly for your project
-environment. This may mean moving in large binary files that you don’t
-want source controlled, auto-generating documentation, or something
-along those lines.
+  it to set up your working directory properly for your project
+  environment. This may mean moving in large binary files that you don’t
+  want source controlled, auto-generating documentation, or something
+  along those lines.
 
 - `post-merge` - Runs after a successful merge command. You can use it
-to restore data in the working tree that Git can’t track, such as
-permissions data. This hook can likewise validate the presence of files
-external to Git control that you may want copied in when the working
-tree changes.
+  to restore data in the working tree that Git can’t track, such as
+  permissions data. This hook can likewise validate the presence of files
+  external to Git control that you may want copied in when the working
+  tree changes.
 
 - `pre-push` - Runs during git push, after the remote refs have been
-updated but before any objects have been transferred. It receives the
-name and location of the remote as parameters, and a list of
-to-be-updated refs through stdin. You can use it to validate a set of
-ref updates before a push occurs (a non-zero exit code will abort the
-push).
+  updated but before any objects have been transferred. It receives the
+  name and location of the remote as parameters, and a list of
+  to-be-updated refs through stdin. You can use it to validate a set of
+  ref updates before a push occurs (a non-zero exit code will abort the
+  push).
 
 - `pre-auto-gc` - Invoked just before the garbage collection takes
-place, and can be used to notify you that this is happening, or to
-abort the collection if now isn’t a good time.
+  place, and can be used to notify you that this is happening, or to
+  abort the collection if now isn’t a good time.
 
 <br>
 
-
 ## Workflows
+
 ---
 
 Git makes it extremely easy to merge changes from multiple developers.
@@ -1836,7 +1777,6 @@ standard for both types of users:
 1. Contributors
 1. Owners/Maintainers
 
-
 ### Contributors
 
 As a contributor, you must follow the contributing guidelines (e.g.
@@ -1844,13 +1784,12 @@ As a contributor, you must follow the contributing guidelines (e.g.
 can't find any such guidelines for the project, please follow these:
 
 - Use
-[conventional-commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)
-to format commit messages
+  [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)
+  to format commit messages
 - Never commit trailing whitespaces
 - Don't keep an empty line at the end of your file
 - Always rebase your branch on target branch before creating a Pull
-Request
-
+  Request
 
 #### Generate pull request template
 
@@ -1863,7 +1802,7 @@ you’re asking to be pulled.
 
 This summary can be emailed to the owner of the upstream repo.
 
-**Note** — *This command does not modify anything.*
+**Note** — _This command does not modify anything._
 
 ```bash
 # Generate a request asking your upstream project to pull changes into
@@ -1882,10 +1821,9 @@ git request-pull upstream/master https://github.com/musq/dotfiles dev
 # and it must be identical to your local dev branch
 ```
 
-
 #### Send commit patches via email
 
-https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_project_over_email
+<https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_project_over_email>
 
 ```bash
 # Generate patches from commits since upstream/master upto
@@ -1931,19 +1869,18 @@ git send-email *.patch
 # It will now ask you to provide the recipient of this email
 ```
 
-
 #### Create pull requests on GitHub
 
 You can use GitHub web user interface to create and manage pull
 requests.
 
-> *GitHub pull requests are essentially issues.*
+> _GitHub pull requests are essentially issues._
 
-- https://github.com/musq/dotfiles/pull/6 redirects to
-https://github.com/musq/dotfiles/issues/6
+- <https://github.com/musq/dotfiles/pull/6> redirects to
+  <https://github.com/musq/dotfiles/issues/6>
 
-- https://github.com/musq/dotfiles/issues/21 redirects to
-https://github.com/musq/dotfiles/pull/21
+- <https://github.com/musq/dotfiles/issues/21> redirects to
+  <https://github.com/musq/dotfiles/pull/21>
 
 You can reference other issues/pull-request by their number on a
 GitHub pull request page using:
@@ -1952,11 +1889,10 @@ GitHub pull request page using:
 - `username#<num>` - refer to issue in a fork of this repository
 - `username/repo#<num>` - refer to issue in another repository
 
-
 ### Owners/Maintainers
 
 - Always make sure your project has a license as the first commit before
-any other code
+  any other code
 
 Whether you maintain a canonical repository or want to help by
 verifying or approving patches, you need to know how to accept work
@@ -1969,24 +1905,24 @@ as remotes to your project.
 You should choose one of the following workflows:
 
 1. `Centralized` - One central hub, or repository, can accept code, and
-everyone synchronizes their work with it. A number of developers (all
-have push access to this repo) are nodes, and synchronize their changes
-with it.
+   everyone synchronizes their work with it. A number of developers (all
+   have push access to this repo) are nodes, and synchronize their changes
+   with it.
 
 1. `Integration-Manager` - One user (owner) with push access. Other
-contributors fork the upstream repo, make changes, and create a pull
-request (PR) for their changes. The owner can merge/reject this PR.
+   contributors fork the upstream repo, make changes, and create a pull
+   request (PR) for their changes. The owner can merge/reject this PR.
 
 1. `Dictator and Lieutenants` - Multiple integration managers
-(lieutenants) are in charge of certain parts of repository. They review
-PRs for their teritorry. All the lieutenants have one integration
-manager known as the benevolent dictator (BD). The dictator merges all
-these changes into his master branch from which other collaborators
-must pull.
-The dictator has the final say for which features will go in which
-release.
-Useful for very big public repositories.
-e.g. Linus Torvalds is BD of linux kernel, Bram Moolenaar is BD of vim
+   (lieutenants) are in charge of certain parts of repository. They review
+   PRs for their teritorry. All the lieutenants have one integration
+   manager known as the benevolent dictator (BD). The dictator merges all
+   these changes into his master branch from which other collaborators
+   must pull.
+   The dictator has the final say for which features will go in which
+   release.
+   Useful for very big public repositories.
+   e.g. Linus Torvalds is BD of linux kernel, Bram Moolenaar is BD of vim
 
 #### Merge patches from email
 
@@ -2037,18 +1973,18 @@ curl https://github.com/musq/dotfiles/pull/21.patch | git am
 
 # List all the raw references on the remote
 git ls-remote https://github.com/musq/dotfiles
-# > 10d539600d86723087810ec636870a504f4fee4d	HEAD
-# > 10d539600d86723087810ec636870a504f4fee4d	refs/heads/master
-# > 6a83107c62950be9453aac297bb0193fd743cd6e	refs/pull/1/head
-# > afe83c2d1a70674c9505cc1d8b7d380d5e076ed3	refs/pull/1/merge
-# > 3c8d735ee16296c242be7a9742ebfbc2665adec1	refs/pull/2/head
-# > 15c9f4f80973a2758462ab2066b6ad9fe8dcf03d	refs/pull/2/merge
-# > a5a7751a33b7e86c5e9bb07b26001bb17d775d1a	refs/pull/4/head
-# > 31a45fc257e8433c8d8804e3e848cf61c9d3166c	refs/pull/4/merge
+# > 10d539600d86723087810ec636870a504f4fee4d HEAD
+# > 10d539600d86723087810ec636870a504f4fee4d refs/heads/master
+# > 6a83107c62950be9453aac297bb0193fd743cd6e refs/pull/1/head
+# > afe83c2d1a70674c9505cc1d8b7d380d5e076ed3 refs/pull/1/merge
+# > 3c8d735ee16296c242be7a9742ebfbc2665adec1 refs/pull/2/head
+# > 15c9f4f80973a2758462ab2066b6ad9fe8dcf03d refs/pull/2/merge
+# > a5a7751a33b7e86c5e9bb07b26001bb17d775d1a refs/pull/4/head
+# > 31a45fc257e8433c8d8804e3e848cf61c9d3166c refs/pull/4/merge
 
 # refs/pull/*/head  - The forked branch from which this PR came
 # refs/pull/*/merge - What the current branch would look like after
-#					  hitting the merge button
+#       hitting the merge button
 
 # Add the repo as origin, then hit
 git fetch origin refs/pull/2/head
@@ -2091,10 +2027,9 @@ git merge pr/2
 
 <br>
 
-
 ## Releases
----
 
+---
 
 ### Semantic versioning
 
@@ -2105,12 +2040,11 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 
 1. `MAJOR` version when you make incompatible API changes
 1. `MINOR` version when you add functionality in a backwards-compatible
-manner
+   manner
 1. `PATCH` version when you make backwards-compatible bug fixes.
 
 Additional labels for pre-release and build metadata are available as
 extensions to the `MAJOR.MINOR.PATCH` format.
-
 
 ### Generate Build number
 
@@ -2126,7 +2060,6 @@ git describe master
 # meaning Git)
 ```
 
-
 ### Prepare Assets
 
 ```bash
@@ -2137,7 +2070,6 @@ git archive master --prefix='project/' | gzip > `git describe master`.tar.gz
 # For zip files
 git archive master --prefix='project/' --format=zip > `git describe master`.zip
 ```
-
 
 ### GPG public key as tag
 
@@ -2168,8 +2100,8 @@ git show musq-pgp-pub | gpg --import
 
 <br>
 
-
 ## Internals
+
 ---
 
 When you run `git init` in a new or existing directory, Git creates
@@ -2181,38 +2113,37 @@ everything you need. Let's check what's inside this ---
 `ls -la .git`
 
 - `COMMIT_EDITMSG` file is created when you run `git commit`. It opens
-your EDITOR program to edit this file. When your editor exits, it reads
-the file and saves it as the message for the commit.
+  your EDITOR program to edit this file. When your editor exits, it reads
+  the file and saves it as the message for the commit.
 - `config` file contains your project-specific configuration options
 - `description` file is used only by the GitWeb program, so don’t worry
-about it
+  about it
 - `FETCH_HEAD` file records the branch which you fetched from a remote
 - `HEAD` file points to the branch you currently have checked out
 - `hooks` directory contains your client- or server-side hook scripts
 - `index` file is where Git stores your staging area information
 - `info` file keeps a global exclude file for ignored patterns that you
-don’t want to track in a .gitignore file
+  don’t want to track in a .gitignore file
 - `logs` directory contains the reflog information
 - `MERGE_HEAD` file points to the head of the source branch that we are
-merging into our destination branch.
+  merging into our destination branch.
 - `objects` directory stores all the content for your database
 - `ORIG_HEAD` file is created by commands that move your HEAD in a
-drastic way, to record the position of the HEAD before their operation,
-so that you can easily change the tip of the branch back to the state
-before you ran them.
+  drastic way, to record the position of the HEAD before their operation,
+  so that you can easily change the tip of the branch back to the state
+  before you ran them.
 - `packed-refs` file contains the refs in packed form
 - `refs` directory stores pointers into commit objects in that data
-(branches, tags, remotes and more)
-
+  (branches, tags, remotes and more)
 
 ### Objects
 
-**Highly Recommended** — https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
+**Highly Recommended** — <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects>
 
 There are four types of objects in git:
 
 - `blob` - snapshots of individual files stored in files with names
-as the resulting SHA1 hash
+  as the resulting SHA1 hash
 - `tree` - contains pointers to blobs
 - `commit` - contains pointers to blobs and trees
 - `tag` - (only for annotated tags) contains pointer to a commit
@@ -2247,7 +2178,6 @@ git cat-file -t 08c25e8dc5322b84902fbd98d0adbd33c0211ce8
 # Further reading about tree and commit objects at
 # https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
 ```
-
 
 ### References
 
@@ -2287,7 +2217,6 @@ git symbolic-ref HEAD
 git symbolic-ref HEAD refs/heads/dev
 ```
 
-
 #### Remote refs
 
 Remote references differ from branches (refs/heads references) mainly
@@ -2300,10 +2229,9 @@ cat .git/refs/remotes/origin/master
 # > ca82a6dff817ec66f44342007202690a93763949
 ```
 
-
 ### Packfiles
 
-https://git-scm.com/book/en/v2/Git-Internals-Packfiles
+<https://git-scm.com/book/en/v2/Git-Internals-Packfiles>
 
 Git optimizes its datastore by removing redundant blob objects and
 packing everything up in packfiles `*.pack` and indexes `*.idx`. These
@@ -2311,7 +2239,6 @@ reside in `.git/objects/pack/`.
 
 This is done on running garbage collector `git gc`, or pushing changes
 `git push`.
-
 
 ### Garbage collection
 
@@ -2349,7 +2276,6 @@ cat .git/packed-refs
 # commit that the annotated tag points to.
 ```
 
-
 ### Fsck
 
 If you delete reflog using `rm -Rf .git/logs/`, us can still recover
@@ -2370,10 +2296,9 @@ git fsck --full
 # a branch that points to that SHA-1.
 ```
 
-
 ### Removing objects
 
-https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery#_removing_objects
+<https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery#_removing_objects>
 
 If someone at any point in the history of your project added a single
 huge file, every clone for all time will be forced to download that
@@ -2391,7 +2316,7 @@ must rebase their work onto your new commits.
 
 ### Environment variables
 
-https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
+<https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>
 
 Git always runs inside a bash shell, and uses a number of shell
 environment variables to determine how it behaves. It comes in handy to
@@ -2400,23 +2325,21 @@ way you want it to.
 
 <br>
 
-
 ## Extras
----
 
+---
 
 ### Bash/Zsh helpers
 
 - `git-completion.bash` -
-[[source](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)]
-Support completion of options
+  [[source](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)]
+  Support completion of options
 
 - `git-prompt.sh` -
-[[source](https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh)]
-Show repository status in prompt
+  [[source](https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh)]
+  Show repository status in prompt
 
 Usage instructions are provided inside each script.
-
 
 ### Bare Repo
 
@@ -2434,10 +2357,9 @@ git init --bare
 git clone --bare https://github.com/musq/dotfiles
 ```
 
-
 ### Git on a server
 
-https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration
+<https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration>
 
 A Git repo can be served using any of the these protocols:
 
@@ -2445,7 +2367,7 @@ A Git repo can be served using any of the these protocols:
 1. `SSH` - For authenticated users. Authenticated, Secure
 1. `GIT` - Unauthenticated, Insecure.
 
-To set up SSH, create a user named ```git```, and add your users public
+To set up SSH, create a user named `git`, and add your users public
 ssh keys in this users .ssh/authorized_keys file. That way, you'd only
 need to create a single user on your server for SSH purposes.
 
@@ -2458,10 +2380,9 @@ login shell.
 
 `sudo chsh git -s $(which git-shell)`
 
-
 ### Scripting GitHub
 
-https://git-scm.com/book/en/v2/GitHub-Scripting-GitHub
+<https://git-scm.com/book/en/v2/GitHub-Scripting-GitHub>
 
 Use the GitHub hooks system and its API to make GitHub work how you
 want it to.
@@ -2469,7 +2390,6 @@ want it to.
 <br>
 
 ---
-
 
 ## Source
 

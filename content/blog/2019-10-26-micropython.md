@@ -1,7 +1,5 @@
 ---
-layout: post
 title: MicroPython
-categories: Conversation
 ---
 
 There is still a place for innovation.
@@ -30,7 +28,7 @@ Fast forward a week, I was watching a [video related to the Internet of
 Things](https://www.youtube.com/watch?v=m1miwCJtxeM). The presenter
 displayed an embedded device running Python. Suddenly, it hit me!
 
-> *My hypothesis was solely focused on the software world.*
+> _My hypothesis was solely focused on the software world._
 
 Software ecosystem has saturated. There is a web service or an app for
 everything. This is because tools to build software applications are
@@ -63,7 +61,7 @@ your computer, open BlinkLED example and hit the Upload button. The LED
 would be blinking as if you had put a gun to its head. All of this in
 under 10 minutes.
 
-> *Arduino changed the hardware development game.*
+> _Arduino changed the hardware development game._
 
 Suddenly people from all over the world were creating wonderful projects
 and sharing them on the internet.

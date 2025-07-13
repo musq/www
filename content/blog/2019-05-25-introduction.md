@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Introduction
-categories: Happy
 ---
 
 Welcome!
@@ -18,9 +16,9 @@ Hopefully, you'll find them interesting.
 Inspirations ---
 
 - [Musings of bluz71](https://bluz71.github.io/) - Precise guides to
-integrate productive command line tools in GNU+Linux
+  integrate productive command line tools in GNU+Linux
 - [Inconsolation](https://inconsolation.wordpress.com/) - Blog
-discussing lots of unix tools in short posts *(concluded, 2015)*
+  discussing lots of unix tools in short posts _(concluded, 2015)_
 - [The dreamer who loves shoes and
-silliness](https://thedreamerwholovesshoesandsilliness.wordpress.com) -
-Lovely poems and proses
+  silliness](https://thedreamerwholovesshoesandsilliness.wordpress.com) -
+  Lovely poems and proses
